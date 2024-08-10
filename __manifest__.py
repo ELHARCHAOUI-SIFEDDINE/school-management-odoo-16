@@ -1,0 +1,23 @@
+{
+    'name': 'school_system',
+    'version': '1.0.0',
+    'category': 'school',
+    'author': 'hr_saif',
+    'sequence': '-100',
+    'summary': 'school_system',
+    'depends': [],
+    'data': [
+        'views/menu.xml',
+        'security/ir.model.access.csv',
+        'views/teacher_view.xml',
+        'views/student_view.xml',
+        'views/classe_view.xml',
+        'views/bulletin_view.xml',
+        'views/matiere_view.xml',
+        'reports/report_bulletin.xml',
+    ],
+    'demo': [],
+    'installable': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

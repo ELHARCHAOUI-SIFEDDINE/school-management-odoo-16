@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Classe View -->
+        <record model="ir.ui.view" id="view_matiere_form">
+            <field name="name">matiere.form</field>
+            <field name="model">matiere</field>
+            <field name="arch" type="xml">
+                <!-- Define the classe form view here -->
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Classe Tree View -->
+        <record model="ir.ui.view" id="view_matiere_tree">
+            <field name="name">matiere.tree</field>
+            <field name="model">matiere</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <!-- Add more fields if needed -->
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_school_matiere" model="ir.actions.act_window">
+        <field name="name">Matieres</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">matiere</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Menu Item -->
+        <menuitem id="menu_matieres" name="Matiéres" parent="main_menu" action="action_school_matiere" />
+
+    </data>
+</odoo>

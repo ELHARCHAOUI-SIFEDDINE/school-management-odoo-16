@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Bulletin Form View -->
+        <record model="ir.ui.view" id="view_bulletin_form">
+            <field name="name">bulletin.form</field>
+            <field name="model">bulletin</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+            <field name="stage" widget="statusbar" statusbar_visible="draft,failed, succeed"
+                   options="{'clickable': '1'}"/>
+            <button name="action_fail" string="Failed" type="object" class="oe_highlight"
+                    attrs="{'invisible': [('stage', '=', 'failed')]}"/>
+            <button name="action_success" string="Succeed" type="object" class="oe_highlight"
+                    attrs="{'invisible': [('stage', '=', 'succeed')]}"/>
+        </header>
+                    <sheet>
+                        <group>
+                            <field name="teacher_id"/>
+                            <field name="student_id"/>
+                            <field name="bulletin_ligne_ids">
+                                <tree editable="bottom">
+                                    <field name="matiere_id"/>
+                                    <field name="note"/>
+                                    <field name="coefficient"/>
+                                </tree>
+                            </field>
+                            <field name="note_moyenne"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Bulletin Tree View -->
+        <record model="ir.ui.view" id="view_bulletin_tree">
+            <field name="name">bulletin.tree</field>
+            <field name="model">bulletin</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="teacher_id"/>
+                    <field name="student_id"/>
+                    <field name="note_moyenne"/>
+                    <field name="stage"/>
+                    <!-- Add more fields if needed -->
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for Bulletin -->
+        <record id="action_school_bulletin" model="ir.actions.act_window">
+            <field name="name">Bulletin</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bulletin</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_bulletin" name="Bulletins" parent="main_menu" action="action_school_bulletin" />
+
+    </data>
+</odoo>

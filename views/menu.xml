@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <!-- Menu Structure -->
+        <menuitem id="main_menu" name="School System" />
+
+
+</odoo>
+

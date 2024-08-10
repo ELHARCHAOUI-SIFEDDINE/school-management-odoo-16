@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Student View -->
+        <record model="ir.ui.view" id="view_student_form">
+            <field name="name">student.form</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <!-- Define the student form view here -->
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="nom"/>
+                            <field name="prenom"/>
+                            <field name="teacher_id"/>
+                            <field name="classe_id"/>
+                            <field name="age"/>
+                            <field name="bdate"/>
+                            <field name="student_age"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Student Tree View -->
+        <record model="ir.ui.view" id="view_student_tree">
+            <field name="name">student.tree</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nom"/>
+                    <field name="prenom"/>
+                    <field name="age"/>
+                    <field name="bdate"/>
+                    <field name="student_age"/>
+                    <field name="stage"/>
+                    <!-- Add more fields if needed -->
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_school_student" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Menu Items -->
+        <menuitem id="menu_students" name="Students" parent="main_menu" action="action_school_student"/>
+
+
+    </data>
+</odoo>

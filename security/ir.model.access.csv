@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+school_system.access_student,access_student,model_student,base.group_user,1,1,1,1
+school_system.access_teacher,access_teacher,model_teacher,base.group_user,1,1,1,1
+school_system.access_classe,access_classe,model_classe,base.group_user,1,1,1,1
+school_system.access_bulletin,access_bulletin,model_bulletin,base.group_user,1,1,1,1
+school_system.access_matiere,access_matiere,model_matiere,base.group_user,1,1,1,1
+school_system.access_bulletin_ligne,access_bulletin_ligne,model_bulletin_ligne,base.group_user,1,1,1,1
+

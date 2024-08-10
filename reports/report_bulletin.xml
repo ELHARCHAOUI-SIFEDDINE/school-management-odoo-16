@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="report_bulletin_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <!-- Header Section -->
+                        <div class="header">
+                            <img src="" alt="Logo"/>
+                            <h1>Bulletin Report</h1>
+                        </div>
+
+
+                        <div class="info">
+                            <p>Etudiant : <span t-field="doc.student_id.nom"/></p>
+                            <p>Professeur : <span t-field="doc.teacher_id.name"/></p>
+                        </div>
+
+                        <!-- Bulletin Lines Table -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Matiere</th>
+                                    <th>Coefficient</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.bulletin_ligne_ids" t-as="line">
+                                    <td><span t-field="line.matiere_id.name"/></td>
+                                    <td><span t-field="line.coefficient"/></td>
+                                    <td><span t-field="line.note"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <div class="footer">
+                            <p>Moyenne : <span t-field="doc.note_moyenne"/></p>
+                            <p>Signature : __________________________</p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_bulletin_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <!-- Header Section -->
+                        <div class="header">
+                            <img src="" alt="Logo"/>
+                            <h1>Bulletin Report</h1>
+                        </div>
+
+
+                        <div class="info">
+                            <p>Etudiant : <span t-field="doc.student_id.nom"/></p>
+                            <p>Professeur : <span t-field="doc.teacher_id.name"/></p>
+                        </div>
+
+                        <!-- Bulletin Lines Table -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Matiere</th>
+                                    <th>Coefficient</th>
+                                    <th>Note</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="doc.bulletin_ligne_ids" t-as="line">
+                                    <td><span t-field="line.matiere_id.name"/></td>
+                                    <td><span t-field="line.coefficient"/></td>
+                                    <td><span t-field="line.note"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <div class="footer">
+                            <p>Moyenne : <span t-field="doc.note_moyenne"/></p>
+                            <p>Signature : __________________________</p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="action_report_bulletin" model="ir.actions.report">
+            <field name="name">Bulletin Report</field>
+            <field name="model">bulletin</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">school_system.report_bulletin_template</field>
+            <field name="binding_model_id" ref="model_bulletin"/>
+            <field name="binding_type">report</field>
+        </record>
+
+
+
+    </data>
+</odoo>
